@@ -52,7 +52,9 @@ class PointCloudProcessor(Node):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         
         # 2. そこを基準に ModelPCD/scissor_model.pcd へのフルパスを自動生成
-        model_filename = "scissor_model.pcd"
+        model_filename = "scissor_model.pcd" #ハサミ
+        #model_filename = "pen_model.pcd" #ペン
+        #model_filename = "T_joint_pipe_model.pcd" #T字パイプ
         model_path = os.path.join(script_dir, "ModelPCD", model_filename)
 
         if os.path.exists(model_path):
