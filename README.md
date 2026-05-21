@@ -42,14 +42,21 @@ pip install ultralytics open3d numpy torch opencv-python scipy
 pip install transformations
 ```
 
-### 3. 物体認識および姿勢推定の実行
+### 3. ビルドの実行
+```bash
+colcon build --packages-select point_free_occlusion_pose
+sourse install/setup.bash
+source /opt/ros/humble/setup.bash
+```
+
+### 4. 物体認識および姿勢推定の実行
 
 ```bash
 # yoloの実行
 ros2 run pose_estimation Yolov26_seg
-'''
+```
 
-'''bash
+```bash
 # 姿勢推定の実行
 ros2 run pose_estimation pose_estimate
 '''
