@@ -44,12 +44,12 @@ pip install transformations
 
 ### 3. 物体認識および姿勢推定の実行
 
+```bash
 # yoloの実行
-'''bash
 ros2 run pose_estimation Yolov26_seg
 '''
 
-# 姿勢推定の実行
 '''bash
+# 姿勢推定の実行
 ros2 run pose_estimation pose_estimate
 '''
