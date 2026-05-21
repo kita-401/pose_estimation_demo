@@ -70,14 +70,26 @@ colcon build --packages-select point_free_occlusion_pose
 source install/setup.bash
 source /opt/ros/humble/setup.bash
 ```
+---
 
-### 4. 物体認識および姿勢推定の実行
+## 物体認識および姿勢推定ノードの実行
 
+### 1. 三次元計測センサの起動
+使用している三次元計測センサを起動してください．
+
+### 2. Rviz２の起動
+物体認識結果や姿勢推定結果を確認するため，Rviz2を起動してください．
+
+### 3. 物体認識＆三次元点群セグメンテーション
+物体認識および対象物体の点群セグメンテーションを実施します．
+本ノードは，realsenseD405にのみ対応しています．
 ```bash
 # yoloの実行（realsenseD405に対応）
 ros2 run pose_estimation Yolov26_seg
 ```
 
+### 4. 三次元姿勢推定
+対象物体の三次元姿勢推定を実施します．推定した姿勢は，Rviz2内のTFを表示することで確認できます．
 ```bash
 # 姿勢推定の実行
 ros2 run pose_estimation pose_estimate
