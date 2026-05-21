@@ -40,12 +40,14 @@ pip install ultralytics open3d numpy torch opencv-python scipy
 
 # 座標変換・クォータニオン計算に必要な拡張ライブラリ
 pip install transformations
+'''
 
-# 実行
+# yoloの実行
 '''bash
 ros2 run pose_estimation Yolov26_seg
 '''
 
+# 姿勢推定の実行
 '''bash
 ros2 run pose_estimation pose_estimate
 '''
