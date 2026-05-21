@@ -51,10 +51,11 @@ class PointCloudProcessor(Node):
         # 1. このスクリプト（pose_estimate.py）があるフォルダの絶対パスを取得
         script_dir = os.path.dirname(os.path.abspath(__file__))
         
-        # 2. そこを基準に ModelPCD/scissor_model.pcd へのフルパスを自動生成
+        # 2. そこを基準に ModelPCD/model.pcd へのフルパスを自動生成
+        # 対象物体に応じて切り替えてください
         model_filename = "scissor_model.pcd" #ハサミ
-        #model_filename = "pen_model.pcd" #ペン
-        #model_filename = "T_joint_pipe_model.pcd" #T字パイプ
+        #model_filename = "pen_modelv2.pcd" #ペン
+        #model_filename = "T_joint_pipe_10000_half_model.pcd" #T字パイプ
         model_path = os.path.join(script_dir, "ModelPCD", model_filename)
 
         if os.path.exists(model_path):
