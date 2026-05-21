@@ -4,6 +4,7 @@
 # 3D Object Pose Estimation System using YOLOv26 & SVD-ICP
 Intel RealSense D405 から取得したRGB-Dデータに対し、YOLOによるインスタンスセグメンテーション（2D）と、SVD（特異値分解）およびICP（反復最近傍点）アルゴリズム（3D）を融合して物体の3D姿勢を高速に推定するROS 2パッケージです。
 SVD演算および近傍探索をPyTorchを用いてGPU並列化することで、リアルタイムな位置合わせを実現しています。
+<img width="1834" height="680" alt="スクリーンショット 2026-05-21 19 34 55" src="https://github.com/user-attachments/assets/713de2c6-7afc-4c0a-83a0-e79bfc95a24c" />
 
 ## 概要 (System Overview)
 
