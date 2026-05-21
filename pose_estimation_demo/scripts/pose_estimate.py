@@ -3,7 +3,7 @@ import torch
 import open3d as o3d
 
 # アルゴリズムの切り替え（将来的に色ありに戻す場合はここを書き換える）
-import Registration_SVD as Registration 
+from pose_estimation_demo.scripts import Registration_SVD as Registration
 
 from sensor_msgs_py import point_cloud2 
 import rclpy
@@ -45,11 +45,15 @@ class PointCloudProcessor(Node):
         self.voxel_size = 0.005
         self.pattern = 'b' # 'b': ball, 'c': chipstar, etc.
         self.measured_pcd = None
+        self.model_pcd = None
         
-        # モデル点群の読み込み
-        model_dir = "ModelPCD"
-        model_filename = "scissor_model.pcd" # 必要に応じて "pen_model.pcd" などに変更
-        model_path = os.path.join(model_dir, model_filename)
+
+        # 1. このスクリプト（pose_estimate.py）があるフォルダの絶対パスを取得
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        
+        # 2. そこを基準に ModelPCD/scissor_model.pcd へのフルパスを自動生成
+        model_filename = "scissor_model.pcd"
+        model_path = os.path.join(script_dir, "ModelPCD", model_filename)
 
         if os.path.exists(model_path):
             raw_model_pcd = o3d.io.read_point_cloud(model_path)

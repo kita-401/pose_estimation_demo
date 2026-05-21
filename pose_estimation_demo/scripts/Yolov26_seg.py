@@ -72,7 +72,7 @@ class Yolo26FilteredNode(Node):
             # PointCloud2データをNumPy配列として展開
             raw_data = np.frombuffer(pc_msg.data, dtype=np.uint8).reshape(h, w, pc_msg.point_step)
             # x, y, z の3つのfloat32（各4byte）を抽出
-            xyz_array = raw_data[:, :, 0:12].view(dtype=np.float32).reshape(h, w, 3)
+            xyz_array = raw_data[:, :, 0:12].copy().view(dtype=np.float32).reshape(h, w, 3)
         except Exception as e:
             self.get_logger().error(f"Data processing error: {e}")
             return

@@ -24,6 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'Yolov26_seg = pose_estimation_demo.scripts.Yolov26_seg:main',
+            'pose_estimate = pose_estimation_demo.scripts.pose_estimate:main'
         ],
     },
 )
